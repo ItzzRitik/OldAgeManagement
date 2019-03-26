@@ -58,6 +58,12 @@ app.get("/git", function(req, res) {
     res.send("1");
 });
 
+app.post("/login", function(req, res) {
+    email: req.body.email;
+    pass: req.body.pass;
+    console.log("\n" + ++call + ") Login Started");
+
+});
 app.post("/signup", function(req, res) {
     console.log("\n" + ++call + ") User Creation Started");
     User.create({
@@ -79,6 +85,7 @@ app.post("/signup", function(req, res) {
         }
     });
 });
+
 
 app.get("/login", function(req, res) {
     res.render("login", {});
