@@ -108,7 +108,7 @@ $('.circlebtn').click(function() {
                         "font-size": "40px",
                         "transform": "rotate(0deg)"
                     });
-                    $('.close').css("background": "#4BB543");
+                    $('.close').css('background', '#4BB543');
                     $(".close").click();
                     $('.close').text("✓");
                     swal("Congratulations!", ", Your account is successfully created!", "success")
