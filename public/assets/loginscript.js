@@ -103,11 +103,11 @@ $('.circlebtn').click(function() {
             if (http.readyState == XMLHttpRequest.DONE) {
                 if (http.responseText == 1) {
                     $(".close").click();
+                    $('.register-form').fadeIn(300);
                     swal("Congratulations!", ", Your account is successfully created!", "success")
                         .then((value) => {
-                            $('.register-form').css('display', 'none');
+                            window.location.replace("https://old-age-sakshi19.c9users.io");
                         });
-                    //window.location.replace("https://old-age-sakshi19.c9users.io");
                 }
             }
         }
