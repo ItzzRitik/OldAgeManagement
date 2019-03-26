@@ -106,14 +106,14 @@ $('.circlebtn').click(function() {
                         "display": "inline",
                         "color": "#fff",
                         "font-size": "25px",
-                        "transform": "rotate(0deg)"
+                        "transform": "rotate(0deg)",
+                        "line-height": "55px",
+                        "right": "15px"
                     });
                     $('.register-form').css('background', '#4BB543');
                     $(".close").click();
                     $('.close').text("✓");
                     $(".close").off('click');
-                    swal("Congratulations!", ", Your account is successfully created!", "success")
-                        .then((value) => {});
                 }
             }
         }
