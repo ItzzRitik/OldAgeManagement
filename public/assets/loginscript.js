@@ -110,9 +110,8 @@ $('.circlebtn').click(function() {
                     });
                     $('.register-form').css('background', '#4BB543');
                     $(".close").click();
-                    $(".register-form").prop('disabled', true);
-                    $(".register-form").children().prop('disabled', true);
                     $('.close').text("✓");
+                    $(".close").off('click');
                     swal("Congratulations!", ", Your account is successfully created!", "success")
                         .then((value) => {});
                 }
