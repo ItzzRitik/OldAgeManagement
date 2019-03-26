@@ -41,7 +41,7 @@ $('.btn').click(function() {
         http.onreadystatechange = function() {
             if (http.readyState == XMLHttpRequest.DONE) {
                 if (http.responseText == 1) {
-                    window.location.replace("https://github.com/ItzzRitik/Sanrakshak-Backend/blob/master/app.js");
+                    swal("Congratulations!", ", You are succesfully logged in!", "success");
                 }
                 else if (http.responseText == 0) {
                     swal("Alert!", ", Incorrect password!", "error");
