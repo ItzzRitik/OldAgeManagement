@@ -78,7 +78,7 @@ app.post("/login", function(req, res) {
             }
         }
         else if (user.length <= 0) {
-            res.send("0");
+            res.send("2");
             console.log(">  Authentication Terminated : User doesn't exist");
         }
     });

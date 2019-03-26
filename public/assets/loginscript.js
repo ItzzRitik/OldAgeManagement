@@ -43,6 +43,12 @@ $('.btn').click(function() {
                 if (http.responseText == 1) {
                     window.location.replace("https://github.com/ItzzRitik/Sanrakshak-Backend/blob/master/app.js");
                 }
+                else if (http.responseText == 0) {
+                    swal("Alert!", ", Incorrect password!", "error");
+                }
+                else if (http.responseText == 2) {
+                    swal("Please Check Email!", ",This Account Doesn't Exists!", "error");
+                }
             }
         }
         http.send(JSON.stringify({
@@ -96,6 +102,7 @@ $('.circlebtn').click(function() {
         http.onreadystatechange = function() {
             if (http.readyState == XMLHttpRequest.DONE) {
                 if (http.responseText == 1) {
+                    swal("Congratulations!", ", Your account is successfully created!", "success");
                     window.location.replace("https://old-age-sakshi19.c9users.io");
                 }
             }
