@@ -102,12 +102,17 @@ $('.circlebtn').click(function() {
         http.onreadystatechange = function() {
             if (http.readyState == XMLHttpRequest.DONE) {
                 if (http.responseText == 1) {
+                    $('.close').css({
+                        "display": "inline",
+                        "color": "#fff",
+                        "font-size": "40px",
+                        "transform": "rotate(0deg)"
+                    });
+                    $('.close').css("background": "#4BB543");
                     $(".close").click();
-                    $('.register-form').fadeIn(300);
+                    $('.close').text("✓");
                     swal("Congratulations!", ", Your account is successfully created!", "success")
-                        .then((value) => {
-                            window.location.replace("https://old-age-sakshi19.c9users.io");
-                        });
+                        .then((value) => {});
                 }
             }
         }
