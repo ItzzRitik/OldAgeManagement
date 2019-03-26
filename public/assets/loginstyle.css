@@ -1,9 +1,10 @@
-@import url(https://fonts.googleapis.com/css?family=Vibur);
+@import url(https://fonts.googleapis.com/css?family=Quicksand);
 *,
 *:after,
 *:before {
     box-sizing: border-box;
     transition: 0.3s;
+    font-family: "Quicksand";
 }
 
 body {
@@ -122,6 +123,7 @@ body {
 }
 
 .register-form .close {
+    font-family: sans-serif;
     transition: 0.3s;
     position: absolute;
     top: 8px;
