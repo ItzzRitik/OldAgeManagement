@@ -59,10 +59,29 @@ app.get("/git", function(req, res) {
 });
 
 app.post("/login", function(req, res) {
-    email: req.body.email;
-    pass: req.body.pass;
+    var email = req.body.email,
+        pass = req.body.pass;
     console.log("\n" + ++call + ") Login Started");
-
+    User.find({ email: email }, function(e, user) {
+        if (e) {
+            console.log(">  Error occured while logging in :\n>  " + e);
+            res.send("0");
+        }
+        else if (user.length > 0) {
+            if (user[0].pass == pass) {
+                res.send("1");
+                console.log(">  Authentication Successfull");
+            }
+            else {
+                res.send("0");
+                console.log(">  Authentication Terminated : Invalid Password");
+            }
+        }
+        else if (user.length <= 0) {
+            res.send("0");
+            console.log(">  Authentication Terminated : User doesn't exist");
+        }
+    });
 });
 app.post("/signup", function(req, res) {
     console.log("\n" + ++call + ") User Creation Started");

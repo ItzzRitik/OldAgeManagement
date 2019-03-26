@@ -41,7 +41,7 @@ $('.btn').click(function() {
         http.onreadystatechange = function() {
             if (http.readyState == XMLHttpRequest.DONE) {
                 if (http.responseText == 1) {
-                    window.location.replace(window.location.origin);
+                    window.location.replace("https://github.com/ItzzRitik/Sanrakshak-Backend/blob/master/app.js");
                 }
             }
         }
