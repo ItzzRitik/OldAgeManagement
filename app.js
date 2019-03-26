@@ -53,6 +53,10 @@ app.get("/git", function(req, res) {
     res.send("1");
 });
 
+app.get("/login", function(req, res) {
+    res.render("login", {});
+});
+
 app.listen(process.env.PORT, process.env.IP, function() {
     clear();
     console.log("\n" + ++call + ") Starting Server");
