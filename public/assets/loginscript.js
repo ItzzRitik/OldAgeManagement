@@ -46,7 +46,7 @@ $('.btn').click(function() {
             }
         }
         http.send(JSON.stringify({
-            email: email,
+            email: id,
             pass: pass
         }))
     }

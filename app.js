@@ -61,7 +61,7 @@ app.get("/git", function(req, res) {
 app.post("/login", function(req, res) {
     var email = req.body.email,
         pass = req.body.pass;
-    console.log("\n" + ++call + ") Login Started");
+    console.log("\n" + ++call + ") Login Started\n  > Email: " + email + "\n  > Password: " + pass);
     User.find({ email: email }, function(e, user) {
         if (e) {
             console.log(">  Error occured while logging in :\n>  " + e);
