@@ -105,11 +105,13 @@ $('.circlebtn').click(function() {
                     $('.close').css({
                         "display": "inline",
                         "color": "#fff",
-                        "font-size": "40px",
+                        "font-size": "25px",
                         "transform": "rotate(0deg)"
                     });
-                    $('.close').css('background', '#4BB543');
+                    $('.register-form').css('background', '#4BB543');
                     $(".close").click();
+                    $(".register-form").prop('disabled', true);
+                    $(".register-form").children().prop('disabled', true);
                     $('.close').text("✓");
                     swal("Congratulations!", ", Your account is successfully created!", "success")
                         .then((value) => {});
