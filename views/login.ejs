@@ -24,20 +24,20 @@
 				<h2>REGISTER</h2>
 				<div class="formset">
 					<div class="form-group">
-						<lable class="form-label">Full Name</lable>
-						<input class="form-control" type="text"/>
+						<lable class="form-label aa">Full Name</lable>
+						<input class="form-control a" type="text"/>
 					</div>
 					<div class="form-group">
-						<lable class="form-label">Email</lable>
-						<input class="form-control" type="text"/>
+						<lable class="form-label bb">Email</lable>
+						<input class="form-control b" type="text"/>
 					</div>
 					<div class="form-group">
-						<lable class="form-label">Password</lable>
-						<input class="form-control" type="password"/>
+						<lable class="form-label cc">Password</lable>
+						<input class="form-control c" type="password"/>
 					</div>
 					<div class="form-group">
-						<lable class="form-label">Repeat Password</lable>
-						<input class="form-control" type="password"/>
+						<lable class="form-label dd">Repeat Password</lable>
+						<input class="form-control d" type="password"/>
 					</div>
 					<button class="circlebtn">
                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve" width="25px" height="25px" class=""><g><g>
@@ -82,17 +82,28 @@
 		    $(this).closest('.register-form').toggleClass('open');
 		});
 		
+		var name,email,pass,conpass,age,gender,address,disease,signup=0;
 		$('.circlebtn').click(function() {
-		    $('.register-form h2').text("PROFILE");
-		    $('.close').css('display', 'none');
-		    $('.register-form h2').css('color', '#ED2553');
-		    $('.register-form').css(
-		        {"color": "#ED2553", 
-		        "background": "#FFF"}
-		    );
-		    $('.register-form .form-group .form-label, .register-form .form-group .form-control').css('color', '#ED2553');
-		    $('.register-form .form-group.focus:after').css('background', '#fff');
-		    $('.register-form .form-group.focus .form-label, .register-form .form-group.filled .form-label').css('color', '#ED2553');
+		    if(signup==0){
+		        name=$('.a').val(),
+		        email=$('.b').val(),
+		        pass=$('.c').val(),
+		        conpass=$('.d').val();
+		        if(name!= "" && email != "" && pass!="" && pass == conpass){
+		            signup=1;
+    		        $('.register-form h2').text("PROFILE");
+	    	        $('.close').css('display', 'none');
+		            $('.register-form h2').css('color', '#ED2553');
+		            $('.register-form').css(
+		                {"color": "#ED2553", 
+		                "background": "#FFF"}
+    		        );
+	    	        $('.register-form .form-group .form-label, .register-form .form-group .form-control').css('color', '#ED2553');
+		        }
+		    }
+		    else if(signup==1){
+		        
+		    }
 		});
 	</script>
 </html>
