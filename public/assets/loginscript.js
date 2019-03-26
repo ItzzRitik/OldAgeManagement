@@ -1,3 +1,5 @@
+/* global $ */
+
 $('.form-control').focusout(function() {
     $('.form-group').removeClass('focus');
 });
@@ -64,6 +66,5 @@ $('.circlebtn').click(function() {
         gender = $('.b').val();
         address = $('.c').val();
         disease = $('.d').val();
-        console.log(name + "\n" + email + "\n" + pass + "\n" + age + "\n" + gender + "\n" + gender + "\n" + disease);
     }
 });
