@@ -22,9 +22,14 @@ app.use(function(req, res, next) {
     next();
 });
 
-var Token = mongoose.model("token", new mongoose.Schema({
-    token: String,
-    value: String
+var User = mongoose.model("user", new mongoose.Schema({
+    email: String,
+    pass: String,
+    name: String,
+    age: String,
+    gender: String,
+    address: String,
+    disease: String
 }));
 
 app.get("/git", function(req, res) {
@@ -53,8 +58,33 @@ app.get("/git", function(req, res) {
     res.send("1");
 });
 
+app.post("/signup", function(req, res) {
+    console.log("\n" + ++call + ") User Creation Started");
+    User.create({
+        email: req.body.email,
+        pass: req.body.pass,
+        name: req.body.name,
+        age: req.body.age,
+        gender: req.body.gender,
+        address: req.body.address,
+        disease: req.body.disease
+    }, function(e, user) {
+        if (e) {
+            res.send("0");
+            console.log(">  Error While Creating New User\n>  " + e);
+        }
+        else {
+            console.log(">  Successfully Created New User\n>  " + user)
+            res.send("1");
+        }
+    });
+});
+
 app.get("/login", function(req, res) {
     res.render("login", {});
+});
+app.get("*", function(req, res) {
+    res.redirect("login");
 });
 
 app.listen(process.env.PORT, process.env.IP, function() {

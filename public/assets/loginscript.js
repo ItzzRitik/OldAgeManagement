@@ -31,40 +31,69 @@ $('.close').click(function() {
     $(this).closest('.register-form').toggleClass('open');
 });
 
-var name, email, pass, conpass, age, gender, address, disease, signup = 0;
-$('.circlebtn').click(function() {
-    if (signup == 0) {
-        name = $('.a').val();
-        email = $('.b').val();
-        pass = $('.c').val();
-        conpass = $('.d').val();
-        if (name != "" && email != "" && pass != "" && pass == conpass) {
-            signup = 1;
+$('.btn').click(function() {
+            var id = $('.a').val(),
+                pass = $('.b').val();
+            if (name != "" && email != "" && pass != "" && pass == conpass) {});
 
-            $('.a').val("");
-            $('.b').val("");
-            $('.c').val("");
-            $('.d').val("");
+        var name, email, pass, conpass, age, gender, address, disease, signup = 0; $('.circlebtn').click(function() {
+            if (signup == 0) {
+                name = $('.a').val();
+                email = $('.b').val();
+                pass = $('.c').val();
+                conpass = $('.d').val();
+                if (name != "" && email != "" && pass != "" && pass == conpass) {
+                    signup = 1;
 
-            $('.aa').text("Age");
-            $('.bb').text("Gender");
-            $('.cc').text("Address");
-            $('.dd').text("History of Disease");
+                    $('.a').val("");
+                    $('.b').val("");
+                    $('.c').val("");
+                    $('.d').val("");
 
-            $('.register-form h2').text("PROFILE");
-            $('.close').css('display', 'none');
-            $('.register-form h2').css('color', '#ED2553');
-            $('.register-form').css({
-                "color": "#ED2553",
-                "background": "#FFF"
-            });
-            $('.register-form .form-group .form-label, .register-form .form-group .form-control').css('color', '#ED2553');
-        }
-    }
-    else if (signup == 1) {
-        age = $('.a').val();
-        gender = $('.b').val();
-        address = $('.c').val();
-        disease = $('.d').val();
-    }
-});
+                    $('.aa').text("Age");
+                    $('.bb').text("Gender");
+                    $('.cc').text("Address");
+                    $('.dd').text("History of Disease");
+
+                    $(".c, .d").prop("type", "text");
+
+                    $('.register-form h2').text("PROFILE");
+                    $('.close').css('display', 'none');
+                    $('.register-form h2').css('color', '#ED2553');
+                    $('.register-form').css({
+                        "color": "#ED2553",
+                        "background": "#FFF"
+                    });
+                    $('.register-form .form-group .form-label, .register-form .form-group .form-control').css('color', '#ED2553');
+                }
+            }
+            else if (signup == 1) {
+                age = $('.a').val();
+                gender = $('.b').val();
+                address = $('.c').val();
+                disease = $('.d').val();
+
+                const http = new XMLHttpRequest()
+                http.open('POST', '/signup')
+                http.setRequestHeader('Content-type', 'application/json')
+                http.onload = function() {
+                    $('.spinner').css("display", "none");
+                }
+                http.onreadystatechange = function() {
+                    if (http.readyState == XMLHttpRequest.DONE) {
+                        if (http.responseText == 1) {
+                            window.location.replace("https://old-age-sakshi19.c9users.io");
+                        }
+                    }
+                }
+                http.send(JSON.stringify({
+                    email: email,
+                    pass: conpass,
+                    name: name,
+                    age: age,
+                    gender: gender,
+                    address: address,
+                    disease: disease
+                }))
+            }
+        });
