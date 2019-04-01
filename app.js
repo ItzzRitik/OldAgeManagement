@@ -15,6 +15,10 @@ mongoose.connect(require("./mongo"), dbOptions).then(
     e => { console.log(">  Connection Failed \n>  " + e); }
 );
 
+app.use(bodyparser.urlencoded({
+    extended: true
+}));
+
 app.use(bodyparser.json());
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
@@ -106,7 +110,8 @@ app.post("/signup", function(req, res) {
 });
 app.post("/profile", function(req, res) {
     var email = req.body.email;
-    console.log("\n" + ++call + ") User Creation Started");
+    console.log("\n" + ++call + ") User Creation Started" + email);
+    res.send(email + "");
 
 });
 
