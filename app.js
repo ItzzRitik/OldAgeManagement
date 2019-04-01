@@ -104,7 +104,11 @@ app.post("/signup", function(req, res) {
         }
     });
 });
+app.post("/profile", function(req, res) {
+    var email = req.body.email;
+    console.log("\n" + ++call + ") User Creation Started");
 
+});
 
 app.get("/login", function(req, res) {
     res.render("login", {});

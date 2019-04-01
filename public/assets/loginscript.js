@@ -42,6 +42,12 @@ $('.btn').click(function() {
             if (http.readyState == XMLHttpRequest.DONE) {
                 if (http.responseText == 1) {
                     swal("Congratulations!", ", You are succesfully logged in!", "success");
+                    var url = 'http://google.com';
+                    var form = $('<form action="' + url + '" method="post">' +
+                        '<input type="text" name="email" value="' + id + '" />' +
+                        '</form>');
+                    $('body').append(form);
+                    form.submit();
                 }
                 else if (http.responseText == 0) {
                     swal("Alert!", ", Incorrect password!", "error");
