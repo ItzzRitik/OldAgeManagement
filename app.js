@@ -109,9 +109,24 @@ app.post("/signup", function(req, res) {
 });
 app.post("/profile", function(req, res) {
     var email = req.body.email;
-    console.log("\n" + ++call + ") User Creation Started" + email);
-    res.render("login", { login: 0 });
-
+    console.log("\n" + ++call + ") Profile Details Requested\n  > Email: " + email);
+    User.find({ email: email }, function(e, user) {
+        if (e) {
+            console.log(">  Error occured while logging in :\n>  " + e);
+            res.send("0");
+        }
+        else if (user.length > 0) {
+            res.render("login", {
+                login: 0,
+                email: user[0].email,
+                name: user[0].name,
+                age: user[0].age,
+                gender: user[0].gender,
+                address: user[0].address,
+                disease: user[0].disease,
+            });
+        }
+    });
 });
 
 app.get("/login", function(req, res) {
