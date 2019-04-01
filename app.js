@@ -18,7 +18,6 @@ mongoose.connect(require("./mongo"), dbOptions).then(
 app.use(bodyparser.urlencoded({
     extended: true
 }));
-
 app.use(bodyparser.json());
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
@@ -111,12 +110,12 @@ app.post("/signup", function(req, res) {
 app.post("/profile", function(req, res) {
     var email = req.body.email;
     console.log("\n" + ++call + ") User Creation Started" + email);
-    res.send(email + "");
+    res.render("login", { login: 0 });
 
 });
 
 app.get("/login", function(req, res) {
-    res.render("login", {});
+    res.render("login", { login: 1 });
 });
 app.get("*", function(req, res) {
     res.redirect("login");

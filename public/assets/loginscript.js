@@ -41,13 +41,15 @@ $('.btn').click(function() {
         http.onreadystatechange = function() {
             if (http.readyState == XMLHttpRequest.DONE) {
                 if (http.responseText == 1) {
-                    swal("Congratulations!", ", You are succesfully logged in!", "success");
-                    var url = '/profile';
-                    var form = $('<form action="' + url + '" method="post">' +
-                        '<input type="hidden" name="email" value="' + id + '" />' +
-                        '</form>');
-                    $('body').append(form);
-                    form.submit();
+                    swal("Congratulations!", ", You are succesfully logged in!", "success")
+                        .then((value) => {
+                            var url = '/profile';
+                            var form = $('<form action="' + url + '" method="post">' +
+                                '<input type="hidden" name="email" value="' + id + '" />' +
+                                '</form>');
+                            $('body').append(form);
+                            form.submit();
+                        });
                 }
                 else if (http.responseText == 0) {
                     swal("Alert!", ", Incorrect password!", "error");

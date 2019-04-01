@@ -6,6 +6,7 @@
 		<link href="/public/assets/loginstyle.css" rel="stylesheet" type="text/css">
 	</head>
 	<body>
+		<% if(login == 1) { %>
 		<div class="panel">
 			<h2>LOGIN</h2>
 			<div class="formset">
@@ -47,6 +48,8 @@
 				</div>
 			</div>
 		</div>
+		<% } else if(login == 0){ %>
+		<% } %>
 	</body>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
